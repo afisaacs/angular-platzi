@@ -1,0 +1,55 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>Productos</h3>
+          <ul>
+            <li>
+              <a routerLink="/products" [queryParams]="{ type: 'news' }"
+                >Nuevos Productos</a
+              >
+            </li>
+            <li>
+              <a routerLink="/products" [queryParams]="{ type: 'offer' }"
+                >En oferta</a
+              >
+            </li>
+            <li>
+              <a routerLink="/products" [queryParams]="{ type: 'latest' }"
+                >Últimos productos</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>Acerca de PlatziStore</h3>
+          <ul>
+            <li><a routerLink="/about-us">Sobre nosotros</a></li>
+            <li><a routerLink="/stores">Nuestras tiendas</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>Contacto</h3>
+          <mat-form-field color="accent" class="example-form-field">
+            <mat-label>Digite su correo</mat-label>
+            <input matInput [formControl]="emailField" type="email" />
+          </mat-form-field>
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="sendMail()"
+            [disabled]="emailField.invalid"
+          >
+            Enviar
+          </button>
+          <p *ngIf="emailField.invalid">El campo no es válido</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

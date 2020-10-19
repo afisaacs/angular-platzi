@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 50px 20px;
+}
+
+.crop-image {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+  }
+}
+
+.container {
+  max-width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 1110px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}

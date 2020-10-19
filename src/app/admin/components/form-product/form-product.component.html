@@ -1,0 +1,54 @@
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Producto</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row center">
+        <input *ngIf="id" formControlName="id" type="hidden" />
+        <div *ngIf="!id" class="col-xs">
+          <mat-form-field>
+            <mat-label>Id</mat-label>
+            <input matInput formControlName="id" type="text" />
+          </mat-form-field>
+        </div>
+        <div class="col-xs">
+          <mat-form-field>
+            <mat-label>Titulo</mat-label>
+            <input matInput formControlName="title" type="text" />
+          </mat-form-field>
+        </div>
+        <div class="col-xs">
+          <mat-form-field>
+            <mat-label>Precio</mat-label>
+            <input matInput formControlName="price" type="number" />
+          </mat-form-field>
+          <div *ngIf="priceFiled.dirty">
+            <mat-error *ngIf="priceFiled.hasError('price_invalid')">
+              Precio invalido
+            </mat-error>
+            <p *ngIf="priceFiled.hasError('required')">
+              El campo es obligatorio
+            </p>
+          </div>
+        </div>
+        <div class="col-xs">
+          <mat-form-field>
+            <mat-label>Descripcion</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        [disabled]="productForm.invalid"
+        mat-raised-button
+        type="submit"
+        color="primary"
+      >
+        {{ id ? "Editar" : "Guardar" }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
