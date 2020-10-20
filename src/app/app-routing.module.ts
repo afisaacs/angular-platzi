@@ -33,6 +33,12 @@ const routes: Routes = [
         canActivate: [AdminGuard],
       },
       {
+        path: 'order',
+        loadChildren: () =>
+          import('./order/order.module').then((m) => m.OrderModule),
+        canActivate: [AdminGuard],
+      },
+      {
         path: 'demo',
         component: DemoComponent,
       },

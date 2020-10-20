@@ -10,6 +10,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Product } from 'src/app/product.model';
+import { CartService } from '../../../core/services/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -21,7 +22,7 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
   @Output() productClicker: EventEmitter<any> = new EventEmitter();
   today = new Date();
 
-  constructor() {
+  constructor(private cartService: CartService) {
     console.log('1. constructor');
   }
 
@@ -52,6 +53,7 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
   addCart(): void {
     console.log('Agregar al carrito');
-    this.productClicker.emit(this.product.id);
+    // this.productClicker.emit(this.product.id);
+    this.cartService.addCart(this.product);
   }
 }

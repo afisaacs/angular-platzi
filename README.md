@@ -690,3 +690,25 @@ export class MyValidators {
   }
 }
 ```
+
+## PROGRAMACION REACTIVA
+
+### BEHAVIOUR SUBJECT
+
+En la calse utilizamos el patrón Observable y behavior subject `BehaviorSubject` para crear un servicio que permite agregar productos a un **carrito** y ademas permite a otros componentes suscribirse para enterarse de cuando se agregar un producto, con lo cual es posible comunicar componentes de manera asincrona utilizando observables.
+
+- [PATRÓN OBSERVER](https://pablomagaz.com/blog/programacion-reactiva-con-rxjs)
+- [BEHAVIOUR SUBJECT](https://pablomagaz.com/blog/rxjs-subjects-que-son-como-funcionan)
+
+### Llamada a observale desde el html
+
+```javascript
+this.total$ = this.cartService.cart$.pipe(map((products) => products.length));
+```
+
+```html
+<a mat-raised-button [matBadge]="total$ | async" matBadgeColor="accent">
+  <mat-icon>shopping_cart</mat-icon>
+  Carrito
+</a>
+```
