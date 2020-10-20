@@ -33,6 +33,10 @@
           </div>
         </div>
         <div class="col-xs">
+          <img *ngIf="image$ | async as image" [src]="image" />
+          <input type="file" (change)="uploadFile($event)" />
+        </div>
+        <div class="col-xs">
           <mat-form-field>
             <mat-label>Descripcion</mat-label>
             <textarea matInput formControlName="description"></textarea>

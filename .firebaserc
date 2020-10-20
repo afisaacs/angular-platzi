@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "aarondev-platzi-store": {
+      "hosting": {
+        "platzi-store": [
+          "aarondev-platzi-store"
+        ]
+      }
+    }
+  }
+}

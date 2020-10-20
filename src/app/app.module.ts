@@ -16,6 +16,10 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment.prod';
 
 registerLocaleData(localeEs);
 
@@ -35,6 +39,9 @@ registerLocaleData(localeEs);
     CoreModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-CO' },
